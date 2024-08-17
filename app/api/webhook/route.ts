@@ -91,7 +91,7 @@ export async function POST(req: Request) {
     }
 
     // Return a response for unsupported events
-    return new Response('Event not handled', {
+    return new Response('Event not handledd', {
         status: 200,
     });
 }
