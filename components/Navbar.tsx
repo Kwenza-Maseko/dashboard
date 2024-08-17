@@ -1,72 +1,75 @@
 import Link from 'next/link'
-import { auth, currentUser } from "@clerk/nextjs/server";
-import { UserButton } from '@clerk/nextjs';
+import { auth } from "@clerk/nextjs/server";
+import { SignOutButton, UserButton } from '@clerk/nextjs';
 import Image from 'next/image';
-import Profile from "@/components/Profile";
+import { dark } from '@clerk/themes';
 
 const Navbar = () => {
     const { userId } = auth();
     return (
-        <nav className="under-gradient p-1 pb-10 md:p-2 md:pb-10">
+        <nav className=" p-1 md:p-2">
             <div className='navbar flex justify-between w-full rounded mb-2 px-2 py-2'>
                 <div className="logo">
                     <Link href={"/"}>
                         <Image
                             src={"/logo.png"}
-                            width={100}
-                            height={50}
+                            width={90}
+                            height={45}
                             alt='logo_image'
                             className='logo_name'
                         />
                     </Link>
                 </div>
 
-                <div className='flex gap-6 items-center'>
+                <div className='flex gap-3 items-center'>
                     {!userId ? (
                         <>
-                            <Link href={"/sign-in"}>
-                                <li>Login</li>
+                            <Link href={"/sign-up"} className='capitalize'>
+                                sign up
                             </Link>
-                            <Link href={"/sign-up"}>
-                                <li>Sign Up</li>
+
+                            <Link href={"/sign-in"}>
+                                <div className="button_idv">
+                                    <button className="rounded-md bg-gradient-to-r from-amber-700 to-amber-950 font-bold px-3 py-2 capitalize">
+                                        sign in
+                                    </button>
+                                </div>
                             </Link>
                         </>) : (
-                        <div className="flex flex-end items-center gap-4">
-                            <div className="avatar flex items-center gap-3">
+                        <div className="flex flex-end items-center gap-3">
 
-                                <div className="flex items-center">
-                                    <UserButton />
-                                </div>
+                            <Link href={"/"} className="flex gap-2 rounded-md bg-gradient-to-r from-indigo-800 to-indigo-950 font-bold p-2 capitalize items-center">
                                 <Image
-                                    src={"/dropdown.png"}
-                                    width={15}
-                                    height={15}
-                                    alt='dropdown'
-                                    className='dropdown'
-                                />
-                            </div>
-
-                            <div className="add_div">
-                                <Image
-                                    src={"/add.png"}
-                                    width={15}
-                                    height={15}
+                                    src={"/icons8-add-picture-30.png"}
+                                    width={24}
+                                    height={24}
                                     alt='add'
-                                    className='add'
                                 />
+                                <p className='text-zinc-300 hidden md:block'>create post</p>
+                            </Link>
+
+                            <div className="avatar flex items-center gap-3">
+                                <div className="flex items-center">
+                                    <UserButton appearance={{
+                                        baseTheme: dark,
+                                    }} />
+                                </div>
                             </div>
 
-                            <div className="button_idv">
-                                <button className="btn">
-                                    sign out
-                                </button>
+                            <div className="button_idv cursor-pointer">
+                                <SignOutButton>
+                                    <Image
+                                        src={"/logout.png"}
+                                        width={20}
+                                        height={20}
+                                        alt='logo_image'
+                                    />
+                                </SignOutButton>
                             </div>
                         </div>
                     )}
                 </div>
             </div>
-            
-          <Profile />
         </nav>
     )
 }

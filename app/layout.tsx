@@ -29,13 +29,15 @@ export default function RootLayout({
             <div className="hidden md:block">
               <Sidebar />
             </div>
-            <div className="content">
+            <div className="content pb-16">
               <div>
                 <Navbar />
               </div>
+              <div className="h-full overflow-y-hidden overflow-y-scroll ">
                 {children}
+              </div>
             </div>
-            <div className="absolute bottom-0 md:hidden w-full">
+            <div className="absolute bottom-0 md:hidden w-full z-50 bg-neutral-950">
               <BottomBar />
             </div>
           </div>

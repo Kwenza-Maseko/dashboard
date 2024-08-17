@@ -3,12 +3,16 @@ import { sidebarLinks } from '@/contents';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Profile from './Profile';
 
 const Sidebar = () => {
     const pathname = usePathname();
 
     return (
         <div className="sidebar">
+             <Profile/>
+        <hr className='hl' />
+        
             <div className="sidebar_items">
                 {sidebarLinks.map((links) => (
                     <Link href={`${links.url}`} key={links.id}>
@@ -42,6 +46,7 @@ const Sidebar = () => {
                     <input type="text" placeholder='Search Here...' className='search_input focus:outline-none' />
                 </div>
             </div>
+       
         </div>
     )
 }
