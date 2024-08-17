@@ -3,27 +3,155 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --bg-color: #111010;
+  --text-color: #fff;
+  --bg-button: #3964FB;
+  --user-bg: #373737;
+  --divider-color: #646060;
+  --name-color: #646060;
+  --bg-gradient: linear-gradient(to bottom, #373737 20%, transparent 100%);
+  --navbar-bg: #1F1E1E;
+  --sidebar-bg: #282727;
+  --sideline: #464646;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: "Lato", sans-serif;
+  font-size: 10pt;
+  color: var(--text-color);
+}
+
+.bg-color {
+  background-color: var(--bg-color);
+  width: 100%;
+  height: 100dvh;
+ 
+}
+
+.content,
+.sidebar {
+  width: 100%;
+  height: 100%;
+}
+.sidebar {
+  background-color: var(--sidebar-bg);
+  border-right: 2px solid var(--sideline);
+  padding: 10px;
+}
+
+.authentication_bg {
+  height: 100dvh;
+}
+
+.navbar {
+ background-color: var(--navbar-bg);
+}
+
+.add_div,
+.avatar {
+  background-color: var(--user-bg);
+}
+
+.avatar {
+  padding: 5px;
+  border-radius: 20px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
+
+.add_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+.btn {
+  background-color: var(--bg-button);
+  color: var(--text-color);
+  font-weight: bold;
+  text-transform: capitalize;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.links {
+  border-radius: 4px;
+  padding: 3px 0;
+}
+.domain_link{
+  color: #3964FB;
+}
+
+.hl {
+  margin: 10px 0;
+  background-color: var(--divider-color);
+  height: 1px;
+  border: none;
+}
+
+.under-gradient {
+  background-image: var(--bg-gradient);
+  height: fit-content;
+}
+
+.search_bar{
+  background-color: var(--user-bg);
+  border-radius: 7px;
+
+}
+.search_input{
+  background-color: var(--user-bg);
+  border: none;
+  width: 100%;
+}
+.search_icon_div{
+  border-right: 1px solid var(--divider-color);
+  padding-right: 7px;
+}
+input:focus{
+  border: none;
+}
+.username{
+  color: #a09e9e;
+}
+
+.jj{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.dropdown{
+  background-color: var(--sideline);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.signin {
+  background-color: rgb(218, 218, 218);
+  padding: 20px;
+  width: 40%;
+}
+
+.dash_ref {
+  background-image: url("/dashbbg.png");
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @layer utilities {
